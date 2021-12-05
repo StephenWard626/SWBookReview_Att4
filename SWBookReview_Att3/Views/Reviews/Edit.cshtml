@@ -1,0 +1,43 @@
+﻿@model SWBook.Models.Reviews
+
+@{
+    ViewData["Title"] = "Edit Review";
+}
+
+<h1>Edit Review</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ReviewID" />
+            <input type="hidden" asp-for="ReviewBook" />
+            <div class="form-group">
+               
+            </div>
+            <div class="form-group">
+                <label asp-for="ReviewCont" class="control-label"></label>
+                <input asp-for="ReviewCont" class="form-control" />
+                <span asp-validation-for="ReviewCont" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rating" class="control-label"></label>
+                <input asp-for="Rating" class="form-control" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to Review List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
